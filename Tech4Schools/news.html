@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T4S - Notícias</title>
+    <link rel="stylesheet" href="css/w3.css">
+    <link rel="stylesheet" href="css/background-colors.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/textos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="T4S icon" href="img/T4S.png" type="image/x-icon">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #mainContent {
+            position: relative;
+            margin-top: -300px;
+            width: 100%;
+            padding: 0;
+        }
+        .news-container {
+            position: relative;
+            top: -350px;
+            margin-left: auto;
+            margin-right: 50px;
+            max-width: 800px;
+            padding: 20px;
+            z-index: 1; 
+        }
+        .news-item {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            position: relative;
+            right: -50px;
+            transform: translateY(-150px);
+        }
+        .banner {
+            position: relative;
+            z-index: 0;
+        }
+        body {
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+        .banner + #mainContent {
+            margin-top: -200px;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            width: 100vw;
+            color: white;
+            background-image: url('img/background news.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: "Lexend", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 600;
+            font-style: normal;
+        }
+        .banner {
+            position: static;
+            width: 100vw;
+            margin-top: 70px;
+            margin-left: -16px;
+            padding: 0;
+        }
+        .banner img {
+            width: 100vw;
+            height: auto;
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+        .footer-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 100;
+        }
+        .copyright-text {
+        position: absolute;
+        bottom: 12px;
+        left: 20px;
+        color: white;
+        font-size: 14px;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgb(122, 65, 255);
+            padding: 10px 0;
+            text-align: center;
+            z-index: 1000;
+        }
+        .nav-item {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            transition: background-color 0.3s;
+            border-radius: 5px;
+        }
+        .nav-item:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        .news-container {
+            margin-left: auto;
+            margin-right: 50px;
+            max-width: 800px;
+            padding: 20px;
+            position: relative;
+            top: -80px;
+        }
+        .news-item {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            margin-top: 0px;
+            position: relative;
+            right: -50px;
+        }
+        #mainContent {
+            margin-top: -20px;
+            padding: 0;
+            width: 100%;
+        }
+        .news-item + .news-item {
+            margin-top: 20px;
+        }
+        .news-container h1 {
+            position: relative;
+            top: -100px;
+            margin-bottom: 30px;
+            color: white;
+        }
+        .title-container {
+            text-align: center;
+            margin-top: 150px;
+            position: relative;
+            top: -130px;
+        }
+        .title-container h1 {
+            color: white;
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+        .news-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            top: -130px;
+        }
+        .news-card {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px auto;
+            display: flex;
+            gap: 20px;
+        }
+        .news-image {
+            flex: 0 0 200px;
+        }
+        .news-image img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        .news-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .news-content h3 {
+            color: white;
+            margin-bottom: 10px;
+        }
+        .date {
+            color: #ccc;
+            margin-bottom: 10px;
+        }
+        .read-more {
+            color: #203bd6;
+            text-decoration: none;
+            margin-top: auto;
+        }
+        .banner {
+            margin-top: 70px;
+        }
+        #mainContent {
+            position: relative;
+            top: -20px;
+        }
+        @media screen and (max-width: 1200px) {
+            .news-grid {
+                max-width: 90%;
+                padding: 10px;
+            }
+            .news-card {
+                margin: 10px auto;
+            }
+        }
+        @media screen and (max-width: 768px) {
+            .navbar {
+                padding: 5px 0;
+            }
+            .nav-item {
+                padding: 8px 10px;
+                margin: 0 5px;
+                font-size: 14px;
+                letter-spacing: -0.5px;
+            }
+            .banner {
+            margin-top: 323px;
+            margin-left: -15%;
+            }
+            .banner img {
+            width: 100%;
+            max-height: 200px;
+            object-position: center;
+            }
+            .title-container {
+                margin-top: 80px;
+            }
+
+            .title-container h1 {
+                font-size: 2em;
+            }
+            .news-card {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .news-image {
+                flex: none;
+                width: 100%;
+            }
+
+            .news-image img {
+                width: 100%;
+                height: 180px;
+            }
+
+            .news-content {
+                padding: 10px 0;
+            }
+
+            .news-content h3 {
+                font-size: 18px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .navbar {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .nav-item {
+                padding: 6px 8px;
+                margin: 2px;
+                font-size: 12px;
+            }
+            .banner {
+            margin-top: 75px !important;
+            margin-left: -16px;
+            }
+            .banner img {
+            width: 100%;
+            max-height: 200px;
+            object-position: center;
+            }
+            .title-container {
+                margin-top: 150px;
+            }
+            .title-container h1 {
+                font-size: 1.8em;
+            }
+            .news-grid {
+                padding: 5px;
+            }
+
+            .news-card {
+                padding: 10px;
+            }
+            .news-image img {
+                height: 160px;
+            }
+            .news-content h3 {
+                font-size: 16px;
+            }
+            .news-content p {
+                font-size: 14px;
+            }
+            .date {
+                font-size: 12px;
+            }
+            .footer-bar {
+                height: 40px;
+            }
+            .copyright-text {
+                font-size: 12px;
+                bottom: 8px;
+                left: 10px;
+            }
+        }
+        @media screen and (max-width: 320px) {
+            .nav-item {
+                padding: 4px 6px;
+                font-size: 11px;
+            }
+            .banner {
+                margin-top: 30px !important;
+            }
+            .banner img {
+                height: 120px;
+            }
+            .title-container h1 {
+                font-size: 1.5em;
+            }
+            .news-image img {
+                height: 140px;
+            }
+            .news-content h3 {
+                font-size: 15px;
+            }
+            .news-content p {
+                font-size: 13px;
+            }
+            .date {
+                font-size: 11px;
+            }
+        }
+    </style>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Garante que a sidebar começa fechada
+        document.getElementById("mySidebar").style.display = "none";
+    });
+
+    function openNav() {
+        document.getElementById("mySidebar").style.display = "block";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidebar").style.display = "none";
+    }
+    </script>
+
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="home.html" class="nav-item">Home</a>
+        <a href="news.html" class="nav-item">Notícias</a>
+        <a href="tips.html" class="nav-item">Dicas</a>
+        <a href="questions.html" class="nav-item">FAQ</a>
+    </div>
+
+    <div id="mainContent">
+        <header class="w3-container w3-theme w3-padding" id="myHeader">
+            <div class="banner">
+                <img src="img/bem-vindo.png" alt="Banner de boas-vindas" style="width: 130%; height: 100%;">
+            </div>
+        </header>
+
+
+    <div class="title-container">
+        <h1>Notícias e materiais</h1>
+    </div>
+
+    <div class="news-grid">
+        <div class="news-card">
+            <div class="news-image">
+                <img src="img/fases-do-desenvolvimento-infantil-piaget.jpg" alt="Fases do desenvolvimento infantil">
+            </div>
+            <div class="news-content">
+                <h3>Fases do desenvolvimento infantil Piaget.</h3>
+                <p class="date">Publicado em: 8 abr. 2024</p>
+                <p>As fases do desenvolvimento infantil segundo Piaget são fundamentais para o entendimento das mudanças e progressos mentais nas crianças. A teoria proposta por Jean Piaget, renomado psicólogo do desenvolvimento...</p>
+                <a href="https://acervopedagogico.com.br/fases-do-desenvolvimento-infantil-piaget/" class="read-more">Leia mais →</a>
+            </div>
+        </div>
+
+        <div class="news-card">
+            <div class="news-image">
+                <img src="img/uso-de-telas-na-infancia-instituto-villamil-2-1.webp" alt="Uso de telas na infância">
+            </div>
+            <div class="news-content">
+                <h3>Uso de telas na infância: Revisão bibliográfica sobre riscos e prejuízos para o desenvolvimento cognitivo e linguístico</h3>
+                <p class="date">Publicado em: 14 dez. 2021</p>
+                <p>A presença da tecnologia no dia-a-dia de todos já é uma realidade no mundo. A constante e crescente aproximação com o ciberespaço tem acontecido cada vez mais precocemente. Entretanto, o uso desregrado das tecnologias nestes períodos pode desencadear problemas no desenvolvimento de crianças e adolescentes.</p>
+                <a href="https://repositorio.pucgoias.edu.br/jspui/handle/123456789/3100" class="read-more">Leia mais →</a>
+            </div>
+        </div>
+
+<div class="news-card">
+    <div class="news-image">
+        <img src="img/piaget.jpeg" alt="Piaget">
+    </div>
+    <div class="news-content">
+        <h3>Resumo da Teoria de Piaget</h3>
+        <p class="date">Publicado em: 1 de out. de 2020</p>
+        <p>Resenha completa e objetiva das principais ideias de Piaget em vídeo.</p>
+        <a href="https://youtu.be/xg_i9LP6AN0?si=lRrz1maxkstr7x0e" class="read-more">Leia mais →</a>
+    </div>
+</div>
+
+<div class="news-card">
+    <div class="news-image">
+        <img src="img/livro.png" alt="Rumo ao futuro da Educação: tendências e desafios">
+    </div>
+    <div class="news-content">
+        <h3>Rumo ao futuro da Educação: tendências e desafios</h3>
+        <p class="date">Publicado em: 8 de mar. 2024</p>
+        <p>Este livro busca explorar uma miríade de temas e desafios que moldam o cenário educacional contemporâneo. Cada capítulo oferece uma perspectiva única sobre questões cruciais que permeiam o ambiente educacional atual.</p>
+        <a href="https://editoralicuri.com.br/index.php/ojs/article/view/487/" style="margin-top: 5px" class="read-more">Leia mais →</a>
+    </div>
+</div>
+
+
+<div class="news-card">
+    <div class="news-image">
+        <img src="img/contribuição-da-tecnologia.jpeg" alt="Contribuição da tecnologia durante a pandemia">
+    </div>
+    <div class="news-content">
+        <h3>As Contribuições da Tecnologia para Amenizar O Impacto da Pandemia</h3>
+        <p class="date">Publicado em: dez. 2020</p>
+        <p>No final de 2019 deflagrou-se o espalhamento do vírus SARS-COV-2 causando uma pandemia, que ainda está presente. Essa pandemia diminuiu o movimento de transformação digital ao qual a sociedade humana vinha trilhando?</p>
+        <a href="http://www.fatecrp.edu.br/WorkTec/edicoes/2020-2/trabalhos/II-Worktec-Cristiano_Carneiro_Bernuzzi.pdf" style="margin-top: 5px" class="read-more">Leia mais →</a>
+    </div>
+</div>
+
+<div class="news-card">
+    <div class="news-image">
+        <img src="img/tecnologia-na-infancia.jpeg" alt="Tecnologia na infância">
+    </div>
+    <div class="news-content">
+        <h3>Tecnologia na infância: entenda quais são os limites</h3>
+        <p class="date">Publicado em: 12 de ago. de 2018</p>
+        <p>Ao olhar ao redor, a tecnologia é onipresente. Das telas de smartphones até os eletrodomésticos não há quem não se valha dos benefícios que ela proporciona; realidade esta que só tende a aumentar vista a transição da sociedade...</p>
+        <a href="https://www.nic.br/noticia/na-midia/tecnologia-na-infancia-entenda-quais-sao-os-limites/" style="margin-top: 5px" class="read-more">Leia mais →</a>
+    </div>
+</div>
+
+
+
+    <script>
+    function w3_open() {
+        document.getElementById("mySidebar").style.display = "block";
+        document.querySelector('.menu-button').style.left = "220px";
+    }
+
+    function w3_close() {
+        document.getElementById("mySidebar").style.display = "none";
+        document.querySelector('.menu-button').style.left = "20px";
+    }
+    </script>
+
+<div class="footer-bar">
+    <img src="img/barra2.jpg" style="width: 100%; height: 50px;">
+    <div class="copyright-text">© 2024 DARKLEM GROUP</div>
+</div>
+
+</body>
+</html> 

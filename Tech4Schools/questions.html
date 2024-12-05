@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T4S</title>
+    <link rel="stylesheet" href="css/w3.css">
+    <link rel="stylesheet" href="css/background-colors.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/textos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="T4S icon" href="img/T4S.png" type="image/x-icon">
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            margin-bottom: 400px;
+            color: white;
+            background-image: url('img/background.jpeg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: "Lexend", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 600;
+            font-style: normal;
+            overflow-x: hidden;
+            width: 100vw;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgb(122, 65, 255);
+            padding: 10px 0;
+            text-align: center;
+            z-index: 1000;
+        }
+        .nav-item {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            transition: background-color 0.3s;
+            border-radius: 5px;
+        }
+        .nav-item:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        .banner {
+            position: static;
+            width: 100vw;
+            margin-top: 30px;
+            margin-left: -8px;
+            padding: 0;
+        }
+        .banner img {
+            width: 100vw;
+            height: auto;
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+        #mainContent {
+            margin-top: 0px;
+            padding: 0;
+            width: 100%;
+        }
+        .footer-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+        }
+        .copyright-text {
+            position: absolute;
+            bottom: 12px;
+            left: 20px;
+            color: white;
+            font-size: 14px;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .tab-menu {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+            padding: 20px;
+        }
+        .tab-button {
+            background-color: rgba(122, 65, 255, 0.5);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .tab-button:hover {
+            background-color: rgb(122, 65, 255);
+        }
+        .tab-button.active {
+            background-color: rgb(122, 65, 255);
+        }
+        .tab-content {
+            display: none;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .faq-item {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+        .faq-item h4 {
+            color: white;
+            margin-bottom: 10px;
+        }
+        .faq-item p {
+            color: white;
+            line-height: 1.6;
+        }
+        .featured-question {
+            text-align: center;
+            margin-top: 80px;
+            padding: 30px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .featured-content {
+            background-color: rgba(122, 65, 255, 0.3);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+            position: relative;
+        }
+        .featured-header {
+            color: white;
+            font-size: 1.5em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+        .featured-content h3 {
+            color: white;
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .featured-content p {
+            color: white;
+            line-height: 1.8;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        .featured-content .quote {
+            font-style: italic;
+            font-size: 1.2em;
+            color: #fff;
+            text-align: center;
+            margin: 20px 0;
+            padding: 10px;
+            border-left: 4px solid rgba(255, 255, 255, 0.3);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        @media screen and (max-width: 768px) {
+            .navbar {
+                padding: 5px 0;
+            }
+            .nav-item {
+                padding: 8px 10px;
+                margin: 0 5px;
+                font-size: 14px;
+                letter-spacing: -0.5px;
+            }
+            .banner {
+            margin-top: 32px !important;
+            margin-left: 0px;
+            }
+            .banner img {
+            width: 100%;
+            max-height: 200px;
+            object-position: center;
+            }
+            #mainContent {
+                padding: 10px;
+            }
+            .faq-item {
+                padding: 15px;
+                margin-bottom: 15px;
+            }
+            .featured-question {
+                padding: 20px;
+            }
+            .tab-button {
+                padding: 10px;
+                font-size: 14px;
+            }
+            .tab-content {
+                padding: 15px;
+            }
+            .copyright-text {
+                font-size: 12px;
+            }
+            h1, h2, h3, h4, p {
+                letter-spacing: -1px;
+            }
+            .featured-header {
+                letter-spacing: -0.5px;
+                font-size: 1.2em;
+            }
+            .featured-content h3 {
+                letter-spacing: -0.5px;
+                font-size: 1.1em;
+            }
+            .featured-content p {
+                letter-spacing: -0.5px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="home.html" class="nav-item">Home</a>
+        <a href="news.html" class="nav-item">Notícias</a>
+        <a href="tips.html" class="nav-item">Dicas</a>
+        <a href="questions.html" class="nav-item">FAQ</a>
+    </div>
+
+    <div class="banner">
+        <img src="img/bem-vindo.png" alt="Banner de boas-vindas" style="width: 130%; height: 100%;">
+    </div>
+
+    <div id="mainContent">
+        <div class="featured-question">
+            <div class="featured-content">
+                <div class="featured-header">Pergunta em Destaque</div>
+                <h3>Como o questionamento impacta o desenvolvimento cognitivo infantil na era digital?</h3>
+                <p>Objetivo: Explicar a importância do questionamento e o impacto de uma vida sem reflexão.</p>
+                <p class="quote">"Uma vida sem questionamentos não merece ser vivida." - Sócrates</p>
+                <p>A ideia de que uma vida não examinada não vale a pena ser vivida é uma premissa tradicionalmente atribuída a Sócrates. Ela foi descrita na Apologia de Platão, que narra o julgamento de Sócrates por impiedade e por corromper a juventude, motivos pelos quais foi condenado à morte. Em meio disso qual o sentido que isso tem em relação ao desenvolvimento cognitivo infantil?</p>
+                <p>Absolutamente tudo! Até porque a maior virtude humana é a forma de pensar, examinar e questionar as coisas não? 
+                E nesta fase que esse atributo é melhor explorado e desenvolvido pelo pequeno, mas em um mundo onde informações falsas/Fake News são espalhadas o tempo todo, conteúdo nocivo/explicito estando a mostra e influencias que acabam por moldar o cérebro do pequeno, sendo eles os Influencers. Essa falta de questionamento que cita Sócrates não é a toa, pois isso deixa nosso senso critico defasado, além de tornarmos facilmente manipulados pela mídia.</p>
+            </div>
+        </div>
+
+        <div class="tab-menu">
+            <button class="tab-button active" onclick="openTab('geral')">Perguntas Gerais</button>
+            <button class="tab-button" onclick="openTab('tecnologia')">Tecnologia e Crianças</button>
+            <button class="tab-button" onclick="openTab('saude')">Saúde e Bem-estar</button>
+            <button class="tab-button" onclick="openTab('educacao')">Educação</button>
+            <button class="tab-button" onclick="openTab('pais')">Dicas para Pais</button>
+        </div>
+
+        <div id="geral" class="tab-content active">
+            <h3>Perguntas Gerais</h3>
+            <div class="faq-item">
+                <h4>O que é considerado uso excessivo de tecnologia na infância?</h4>
+                <p>O uso excessivo é caracterizado pelo tempo prolongado de exposição às telas que interfere em atividades essenciais como sono, alimentação, socialização e estudos. Para crianças entre 2-5 anos, o limite recomendado é de 1 hora por dia, e para maiores de 6 anos, o ideal é não ultrapassar 2 horas de entretenimento digital.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Quais são os primeiros sinais de dependência tecnológica?</h4>
+                <p>Os principais sinais incluem: irritabilidade quando não está usando dispositivos, perda de interesse em outras atividades, isolamento social, alterações no sono, baixo rendimento escolar e ansiedade quando está sem acesso à tecnologia.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Como a tecnologia afeta o desenvolvimento cerebral das crianças?</h4>
+                <p>A exposição excessiva pode afetar o desenvolvimento da atenção, memória, linguagem e habilidades sociais. O cérebro em desenvolvimento precisa de estímulos variados e interações reais para se desenvolver adequadamente.</p>
+            </div>
+        </div>
+
+        <div id="tecnologia" class="tab-content">
+            <h3>Tecnologia e Crianças</h3>
+            <div class="faq-item">
+                <h4>Quais aplicativos e jogos são adequados para cada idade?</h4>
+                <p>Para crianças de 2-5 anos: apps educativos com cores, formas e números. Para 6-8 anos: jogos de raciocínio lógico e criatividade. Para 9-12 anos: apps de programação básica e jogos educativos mais complexos. É importante sempre verificar a classificação etária e supervisionar o uso.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Como proteger as crianças de conteúdos inadequados online?</h4>
+                <p>Utilize controles parentais, mantenha os dispositivos em áreas comuns da casa, estabeleça regras claras de uso, monitore o histórico de navegação e mantenha um diálogo aberto sobre segurança online.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Qual o impacto das redes sociais no desenvolvimento infantil?</h4>
+                <p>As redes sociais podem afetar a autoestima, criar ansiedade social, expor a cyberbullying e criar dependência de validação externa. É recomendado evitar o uso antes dos 13 anos e, após essa idade, estabelecer limites claros.</p>
+            </div>
+        </div>
+
+        <div id="saude" class="tab-content">
+            <h3>Saúde e Bem-estar</h3>
+            <div class="faq-item">
+                <h4>Como o uso de telas afeta o sono das crianças?</h4>
+                <p>A luz azul emitida pelos dispositivos interfere na produção de melatonina, hormônio do sono. Recomenda-se evitar telas 1-2 horas antes de dormir e manter dispositivos fora do quarto.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Quais problemas físicos podem surgir do uso excessivo de tecnologia?</h4>
+                <p>Problemas de postura, fadiga visual, dores de cabeça, sedentarismo, obesidade e síndrome do túnel do carpo são alguns dos problemas físicos que podem surgir do uso prolongado de dispositivos.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Como equilibrar atividades físicas e uso de tecnologia?</h4>
+                <p>Estabeleça horários específicos para uso de tecnologia, incentive atividades ao ar livre, pratique esportes em família e crie momentos de lazer sem telas.</p>
+            </div>
+        </div>
+
+        <div id="educacao" class="tab-content">
+            <h3>Educação</h3>
+            <div class="faq-item">
+                <h4>Como a tecnologia pode ser usada de forma positiva na educação?</h4>
+                <p>Através de apps educativos, pesquisas orientadas, projetos interativos, programação básica e ferramentas de aprendizado adaptativo. O importante é que a tecnologia seja um complemento, não o centro da educação.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Qual o papel dos pais na educação digital dos filhos?</h4>
+                <p>Os pais devem ser modelos de uso saudável da tecnologia, estabelecer regras claras, supervisionar o uso, ensinar sobre segurança online e manter diálogo aberto sobre experiências digitais.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Como identificar se a tecnologia está prejudicando o aprendizado?</h4>
+                <p>Observe sinais como: queda no rendimento escolar, dificuldade de concentração em atividades não-digitais, resistência a leitura tradicional e preferência exclusiva por conteúdo digital.</p>
+            </div>
+        </div>
+
+        <div id="pais" class="tab-content">
+            <h3>Dicas para Pais</h3>
+            <div class="faq-item">
+                <h4>Como estabelecer regras de uso de tecnologia em casa?</h4>
+                <p>Crie um "contrato digital familiar", estabeleça horários específicos para uso, defina áreas livres de tecnologia (como mesa de jantar), e mantenha consistência nas regras.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Como lidar com a resistência da criança aos limites de uso?</h4>
+                <p>Explique as razões dos limites, ofereça alternativas interessantes, seja consistente nas regras e elogie quando as regras são seguidas. É importante manter o diálogo e ajustar as regras conforme necessário.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Como promover um uso criativo e produtivo da tecnologia?</h4>
+                <p>Incentive projetos digitais criativos, como edição de vídeos, criação de histórias digitais, programação básica e uso de apps educativos. Transforme o tempo de tela em tempo de aprendizado e criação.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bar">
+        <img src="img/barra2.jpg" style="width: 100%; height: 50px;">
+        <div class="copyright-text">© 2024 DARKLEM GROUP</div>
+    </div>
+
+    <script>
+    function openTab(tabName) {
+
+        var contents = document.getElementsByClassName('tab-content');
+        for (var i = 0; i < contents.length; i++) {
+            contents[i].classList.remove('active');
+        }
+
+        var buttons = document.getElementsByClassName('tab-button');
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].classList.remove('active');
+        }
+
+        document.getElementById(tabName).classList.add('active');
+        event.currentTarget.classList.add('active');
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T4S - Dicas</title>
+    <link rel="stylesheet" href="css/w3.css">
+    <link rel="stylesheet" href="css/background-colors.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/textos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="T4S icon" href="img/T4S.png" type="image/x-icon">
+
+    <style>
+        body {
+            margin-bottom: 500px;
+            color: white;
+            background-image: url('img/background dicas.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: "Lexend", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 600;
+            font-style: normal;
+        }
+        .banner {
+            position: relative;
+            margin-top: 120px !important;
+            width: 100vw;
+            margin-left: -16px;
+            padding: 0;
+            overflow: hidden;
+        }
+        .banner img {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 0;
+            padding: 0;
+            object-fit: cover;
+        }
+        .footer-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 100;
+        }
+        .copyright-text {
+        position: absolute;
+        bottom: 12px;
+        left: 20px;
+        color: white;
+        font-size: 14px;
+        }
+  .tip-card {
+    background-color: rgba(122, 65, 255, 0.8);
+    border-radius: 10px;
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 800px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .tip-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  .tip-card.active {
+    background-color: rgba(122, 65, 255, 0.95);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  .tip-card.active .tip-content {
+    max-height: 15000px !important;
+    margin-top: 15px;
+  }
+  .subtip-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    margin: 10px 0;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .subtip-card:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+  .subtip-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    padding: 0 10px;
+  }
+  .subtip-card.active {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  .subtip-card.active .subtip-content {
+    max-height: 15000px !important;
+  }
+  .subtip-card:last-child.active .subtip-content {
+    max-height: 15000px !important;
+  }
+  .subtip-card:last-child {
+    background-color: rgba(0, 29, 192, 0.4);
+  }
+  .subtip-card:last-child:hover {
+    background-color: rgba(0, 29, 192, 0.4);
+  }
+  .subtip-card:last-child.active {
+    background-color: rgba(0, 29, 192, 0.4);
+  }
+  .subtip-card .subtip-card .subtip-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    padding: 0 10px;
+  }
+  .subtip-card .subtip-card.active .subtip-content {
+    max-height: 15000px !important;
+  }
+  .subtip-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    padding: 0 10px;
+  }
+  .subtip-card.active .subtip-content {
+    max-height: 15000px !important;
+  }
+  .subtip-card .subtip-card {
+    background-color: rgba(0, 29, 192, 0.4);
+    margin: 10px 20px;
+  }
+  .subtip-card .subtip-card .subtip-content {
+    max-height: 15000px !important;
+  }
+  .subtip-card .subtip-card.active .subtip-content {
+    max-height: 15000px !important;
+  }
+  .inner-card .inner-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    padding: 0 10px;
+  }
+  .inner-card.active .inner-content {
+    max-height: 15000px !important;
+  }
+  .subtip-card.active .subtip-content {
+    max-height: 15000px !important;
+  }
+  .tip-card.active .tip-content {
+    max-height: 15000px !important;
+  }
+  .inner-content {
+    max-height: none !important;
+    height: auto !important;
+  }
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgb(122, 65, 255);
+    padding: 10px 0;
+    text-align: center;
+    z-index: 1000;
+  }
+  .nav-item {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+  }
+  .nav-item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  .tips-title {
+    text-align: center;
+    margin-top: 40px !important;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .tips-title h1 {
+    color: white;
+    font-size: 2.5em;
+    font-weight: bold;
+  }
+  .tips {
+    margin: 0;
+  }
+  .w3-container {
+    margin: 10px auto !important;
+    max-width: 800px;
+  }
+  [style*="margin-top: 250px"] {
+    margin-top: 40px !important;
+  }
+  [style*="margin: 20px auto"] {
+    margin: 10px auto !important;
+  }
+  [style*="margin: -60px auto"] {
+    margin: 10px auto !important;
+  }
+  .tip-card {
+    margin-top: 10px !important;
+    margin-bottom: 20px !important;
+  }
+  #mainContent {
+    position: relative;
+    top: -100px !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
+  }
+  .tip-content {
+    margin-top: 10px !important;
+  }
+  .subtip-card {
+    margin: 5px 0 !important;
+  }
+  .w3-container {
+    margin: 10px auto !important;
+    max-width: 800px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .tip-card {
+    width: 90% !important;
+    max-width: 800px;
+    margin: 10px auto !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .tips-title {
+    text-align: center;
+    margin-top: 40px !important;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .subtip-card {
+    width: 90% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .tip-content, .subtip-content {
+    width: 100%;
+    text-align: left;
+  }
+  [style*="margin-left"], [style*="margin-right"] {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  @media screen and (max-width: 768px) {
+    .navbar {
+                padding: 5px 0;
+            }
+            .nav-item {
+                padding: 8px 10px;
+                margin: 0 5px;
+                font-size: 14px;
+                letter-spacing: -0.5px;
+            }
+    .banner {
+        margin-top: 125px !important;
+        margin-left: 0px;
+    }
+    .banner img {
+        width: 100%;
+        max-height: 200px;
+        object-position: center;
+    }
+    .tip-card {
+        width: 95% !important;
+        padding: 15px;
+    }
+    .tip-card h2 {
+        font-size: 22px;
+        letter-spacing: -0.5px;
+    }
+    .tip-card h3 {
+        font-size: 18px;
+        letter-spacing: -0.5px;
+    }
+    .tip-content p, 
+    .subtip-content p {
+        font-size: 14px;
+        letter-spacing: -0.5px;
+    }
+    .subtip-card {
+        width: 95% !important;
+        padding: 10px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .navbar {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .nav-item {
+        padding: 6px 8px;
+        margin: 2px;
+        font-size: 12px;
+    }
+    .tips-title h1 {
+        font-size: 1.8em;
+    }
+    .tip-card {
+        width: 100% !important;
+        padding: 10px;
+        margin: 5px auto !important;
+    }
+    .tip-card h2 {
+        font-size: 20px;
+    }
+    .tip-card h3 {
+        font-size: 16px;
+    }
+    .tip-content p, 
+    .subtip-content p {
+        font-size: 13px;
+        line-height: 1.4;
+    }
+    .copyright-text {
+        font-size: 12px;
+        bottom: 8px;
+        left: 10px;
+    }
+  }
+  @media screen and (max-width: 320px) {
+    .navbar {
+        padding: 2px 0;
+    }
+    .nav-item {
+        padding: 4px 6px;
+        font-size: 11px;
+    }
+    .tips-title h1 {
+        font-size: 1.5em;
+    }
+    .tip-card h2 {
+        font-size: 18px;
+    }
+    .tip-card h3 {
+        font-size: 14px;
+    }
+  }
+
+    </style>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById("mySidebar").style.display = "none";
+    });
+
+    function openNav() {
+        document.getElementById("mySidebar").style.display = "block";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidebar").style.display = "none";
+    }
+    </script>
+
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="home.html" class="nav-item">Home</a>
+        <a href="news.html" class="nav-item">Notícias</a>
+        <a href="tips.html" class="nav-item">Dicas</a>
+        <a href="questions.html" class="nav-item">FAQ</a>
+    </div>
+    <div id="mainContent">
+        <header class="w3-container w3-theme w3-padding" id="myHeader">
+            <div class="banner">
+                <img src="img/bem-vindo.png" alt="Banner de boas-vindas" style="width: 130%; height: 100%;">
+            </div>
+        </header>
+
+    <div class="tips-title">
+            <h1>Dicas</h1>
+        </div>
+
+    <div class="w3-container" style="margin: 20px auto; max-width: 1000px;">
+        <div class="tip-card" style="
+            background-color: rgba(0, 29, 192, 0.6);
+            padding: 30px;
+            margin-bottom: 40px;
+            text-align: left;
+            font-style: italic;
+            font-size: 14px;
+            width: 90%;
+        ">
+            <div class="tip-content" style="max-height: none;">
+                <p style="margin: 0;">
+                    "Assim como é importante que os adultos retornem a essa interioridade, parando, pensando e se conectando com os outros por meio de uma conversa boa e profunda, para as crianças é essencial uma boa educação que as torne capazes de olhar para dentro, sentir e cultivar esse mundo interior."
+                </p>
+                <p style="margin-top: 10px; font-size: 12px; text-align: right;">
+                    HAROCHE, Claudine. BBC News Brasil, 2023. Disponível em: 
+                    <a href="https://www.bbc.com/portuguese/articles/cpv2lgrdgw9o" 
+                       target="_blank" 
+                       style="color: white; text-decoration: underline;">
+                        https://www.bbc.com/portuguese/articles/cpv2lgrdgw9o
+                    </a>. 
+                    Acesso em: 16 nov. 2024.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="w3-container" style="margin: 20px auto; max-width: 1000px;">
+        <div class="tip-card" onclick="toggleTip(this)" style="
+            background-color: rgba(0, 29, 192, 0.8);
+            padding: 30px;
+            margin-bottom: 40px;
+            text-align: left;
+        ">
+            <h2 style="margin: 0; font-size: 28px;">A evolução da tecnologia e a infância</h2>
+            <div class="tip-content">
+                <p style="font-size: 18px; line-height: 1.6;">
+                    Dicas de uso saudável dos dispositivos
+                </p>
+                <ul style="font-size: 16px; line-height: 1.8;">
+                    <p style="margin: 10px 0;">
+                        Com o advento da contínua evolução da tecnologia sendo tão presente no cotidiano, nosso tempo em frente as telas têm se tornado cada vez maior.
+                        Junto com essas facilidades tecnológicas vem as consequências tanto de curto quanto a longo prazo para o nosso corpo.
+                        Durante nossas atividades diárias que envolvem o uso da internet, seja trabalhar, estudar ou aproveitar um bom tempo imerso a um tipo de entretenimento, muita das vezes nós pouco nos atentamos a qualidade da saúde física, percebendo os efeitos do uso excessivo apenas após o término dessas atividades. Ao final do dia chega uma conhecida dor no pescoço, aquele cansaço nos olhos, as fortes dores de cabeça e por aí vai...
+                        Neste tópico, o Tech For Schools apresenta um conjunto de dicas para o uso saudável dos dispositivos eletrônicos recomendado por especialistas. Acreditamos que essas dicas podem ser aplicadas a todas as idades e são úteis para promover uma consciência e autoanálise da maneira como usamos a Internet.
+                    </p>
+                </ul>
+                <p style="font-size: 16px; margin-top: 20px;">
+                    Lembre-se: A sua saúde também é feita de pequenos cuidados quanto ao uso de aparelhos eletrônicos.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="w3-container" style="margin: -60px auto 20px auto; max-width: 1000px;">
+        <div class="tip-card" onclick="toggleTip(this)">
+            <h3 style="margin: 0;">Recomendações da Organização Mundial da Saúde (OMS) por faixa etária sobre o uso de telas por crianças.</h3>
+            <div class="tip-content">
+                <p style="margin-top: 10px; font-size: 16px; color: #e6e6e6;">
+                    Essas diretrizes visam promover a saúde e o bem-estar das crianças, considerando os possíveis efeitos negativos do tempo excessivo de tela.
+                </p>
+                <!-- Subseção 1 -->
+                <div class="subtip-card" onclick="toggleSubTip(this)">
+                    <h4 style="margin: 10px 0; color: #e6e6e6;">Menores de 1 ano</h4>
+                    <div class="subtip-content">
+                        <ul>
+                            <li>Nenhum tempo de tela: Para bebês, a OMS recomenda que não haja exposição a telas, pois esse é um período crucial para o desenvolvimento físico e cognitivo através da interação direta com os pais, cuidadores e o ambiente.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Subseção 2 -->
+                <div class="subtip-card" onclick="toggleSubTip(this)">
+                    <h4 style="margin: 10px 0; color: #e6e6e6;">Entre 1 e 2 anos</h4>
+                    <div class="subtip-content">
+                        <ul>
+                            <li>Nenhum tempo de tela recomendado: Se for necessário expor a criança a telas, deve ser por um curto período e sempre acompanhado por um adulto. Atividades interativas e de alta qualidade são preferíveis.</li>
+                            <li>Atividades alternativas: Estimula-se a participação em atividades físicas e sociais, como brincadeiras ativas e leitura de livros.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Subseção 3 -->
+                <div class="subtip-card" onclick="toggleSubTip(this)">
+                    <h4 style="margin: 10px 0; color: #e6e6e6;">Entre 2 a 5 anos</h4>
+                    <div class="subtip-content">
+                        <ul>
+                            <li>Máximo de 1 hora por dia: O tempo de tela deve ser limitado a no máximo 1 hora por dia de conteúdo passivo (como assistir televisão ou vídeos).</li>
+                            <li>Atividades ativas e interativas: A ênfase deve ser em atividades que promovam o desenvolvimento físico e cognitivo, como brincadeiras ao ar livre e jogos educativos.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="subtip-card" onclick="toggleSubTip(this)">
+                    <h4 style="margin: 10px 0; color: #e6e6e6;">Entre 6 a 10 anos</h4>
+                    <div class="subtip-content">
+                        <ul>
+                            <li>Limitar o tempo de tela: Deve-se estabelecer limites claros para o tempo de tela, preferencialmente não ultrapassando 1-2 horas por dia de tempo recreativo na frente das telas.</li>
+                            <li>Atividades físicas e sociais: Priorizar atividades físicas e interações sociais face a face. Pelo menos 1 hora de atividade física moderada a vigorosa diária é recomendada.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="subtip-card" onclick="toggleSubTip(this)">
+                    <h4 style="margin: 10px 0; color: #e6e6e6;">Adolescentes de 11 a 18 anos</h4>
+                    <div class="subtip-content">
+                        <ul>
+                            <li>Equilíbrio: Estabelecer um equilíbrio saudável entre o tempo de tela e outras atividades importantes, como estudo, sono, atividades físicas e sociais.</li>
+                            <li>Limites claros: Definir limites para o uso de telas, especialmente em termos de tempo e tipo de conteúdo. O tempo de tela recreativo deve ser limitado a cerca de 2 horas por dia.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="subtip-card" onclick="toggleSubTip(this)">
+                    <p style="margin: 1px 0; color: #e6e6e6;">Recomendações adicionais</p>
+                    <div class="subtip-content">
+                            <p style="margin: 1px 0; color: #e6e6e6; font-size: 14px;">Essas recomendações ajudam a minimizar os potenciais efeitos negativos do uso excessivo de telas, como problemas de sono, sedentarismo e impacto no desenvolvimento social e emocional.</p>
+                        <ul>
+
+                            
+                            <div class="subtip-card inner-card" onclick="event.stopPropagation(); toggleInnerContent(this)" style="
+                                background-color: rgba(0, 29, 192, 0.4);
+                                margin-left: 20px;
+                                margin-right: 20px;
+                                cursor: pointer;
+                                padding: 10px;
+                            ">
+                                <p style="margin: 1px 0; color: #e6e6e6;">Estratégias Para Pais e Educadores</p>
+                                <div class="inner-content" style="
+                                    display: none;
+                                    transition: all 0.3s ease;
+                                    color: #e6e6e6;
+                                    padding: 10px;
+                                ">
+                                    <ul style="list-style-type: disc; padding-left: 20px;">
+                                        <li>Adotar regras que trazem de volta a consciência do mundo fora da virtualização para promover um equilíbrio na rotina de crianças e adolescentes.</li>
+                                    </ul>
+                                </div>
+                            </div>
+    
+                            <div class="subtip-card inner-card" onclick="event.stopPropagation(); toggleInnerContent(this)" style="
+                                background-color: rgba(0, 29, 192, 0.4);
+                                margin-left: 20px;
+                                margin-right: 20px;
+                                cursor: pointer;
+                                padding: 10px;
+                            ">
+                                <p style="margin: 1px 0; color: #e6e6e6;">Estabelecimento de Regras de Uso</p>
+                                <div class="inner-content" style="
+                                    display: none;
+                                    transition: all 0.3s ease;
+                                    color: #e6e6e6;
+                                    padding: 10px;
+                                ">
+                                    <ul style="list-style-type: disc; padding-left: 20px;">
+                                        <li>Definir horários específicos para o uso de dispositivos tecnológicos, por exemplo proibir dispositivos eletrônicos durante as refeições.</li>
+                                    </ul>
+                                </div>
+                            </div>
+    
+                            <div class="subtip-card inner-card" onclick="event.stopPropagation(); toggleInnerContent(this)" style="
+                                background-color: rgba(0, 29, 192, 0.4);
+                                margin-left: 20px;
+                                margin-right: 20px;
+                                cursor: pointer;
+                                padding: 10px;
+                                margin-top: 10px;
+                            ">
+                                <p style="margin: 1px 0; color: #e6e6e6;">Atividades Alternativas</p>
+                                <div class="inner-content" style="
+                                    display: none;
+                                    transition: all 0.3s ease;
+                                    color: #e6e6e6;
+                                    padding: 10px;
+                                ">
+                                    <ul style="list-style-type: disc; padding-left: 20px;">
+                                        <li>Incentivar a prática de esportes, brincadeiras ao ar livre e atividades físicas regulares em substituição aos jogos.</li>
+                                        <li>Também é válido estimular hobbies offline como: ler livros, desenhar, tocar instrumentos musicais, entre outras atividades que não envolvam tecnologia.</li>
+                                    </ul>
+                                </div>
+                            </div>
+    
+                            <div class="subtip-card inner-card" onclick="event.stopPropagation(); toggleInnerContent(this)" style="
+                                background-color: rgba(0, 29, 192, 0.4);
+                                margin-left: 20px;
+                                margin-right: 20px;
+                                cursor: pointer;
+                                padding: 10px;
+                                margin-top: 10px;
+                            ">
+                                <p style="margin: 1px 0; color: #e6e6e6;">Educação Digital</p>
+                                <div class="inner-content" style="
+                                    display: none;
+                                    transition: all 0.3s ease;
+                                    color: #e6e6e6;
+                                    padding: 10px;
+                                ">
+                                    <ul style="list-style-type: disc; padding-left: 20px;">
+                                        <li>Ensinar sobre a segurança online, Informar sobre a importância de proteger dados pessoais, reconhecer conteúdos inapropriados e evitar contatos com desconhecidos.</li>
+                                        <li>Fomentar o Pensamento Crítico: Ajudar a avaliar a veracidade das informações encontradas online e entender os impactos das redes sociais na propagação de informações e opiniões.</li>
+                                    </ul>
+                                </div>
+                            </div>
+    
+                            <div class="subtip-card inner-card" onclick="event.stopPropagation(); toggleInnerContent(this)" style="
+                                background-color: rgba(0, 29, 192, 0.4);
+                                margin-left: 20px;
+                                margin-right: 20px;
+                                cursor: pointer;
+                                padding: 10px;
+                                margin-top: 10px;
+                            ">
+                                <p style="margin: 1px 0; color: #e6e6e6;">Referência prática</p>
+                                <div class="inner-content" style="
+                                    display: none;
+                                    transition: all 0.3s ease;
+                                    color: #e6e6e6;
+                                    padding: 10px;
+                                ">
+                                    <ul style="list-style-type: disc; padding-left: 20px;">
+                                        <li>Os pais devem dar o exemplo, mostrando um uso saudável e equilibrado da tecnologia, tornando-se uma boa influência aos filhos.</li>
+                                        <li>Também é importante priorizar interações com tempo de qualidade com os filhos, longe das telas.</li>
+                                    </ul>
+                                </div>
+                            </div>
+    
+                            <div class="subtip-card inner-card" onclick="event.stopPropagation(); toggleInnerContent(this)" style="
+                                background-color: rgba(0, 29, 192, 0.4);
+                                margin-left: 20px;
+                                margin-right: 20px;
+                                cursor: pointer;
+                                padding: 10px;
+                                margin-top: 10px;
+                            ">
+                                <p style="margin: 1px 0; color: #e6e6e6;">Ambiente Digital Seguro</p>
+                                <div class="inner-content" style="
+                                    display: none;
+                                    transition: all 0.3s ease;
+                                    color: #e6e6e6;
+                                    padding: 10px;
+                                ">
+                                    <ul style="list-style-type: disc; padding-left: 20px;">
+                                        <li>Uso de Controles Parentais hoje em dia é uma das ferramentas de controle parental para limitar o acesso a conteúdos inadequados e monitoramento.</li>
+                                        <li>Participação ativa também faz a diferença! É feita ao acompanhar e participar das atividades online das crianças, mostrando interesse e suporte.</li>
+                                    </ul>
+                                </div>
+                            </div>
+    
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <script>
+    function w3_open() {
+        document.getElementById("mySidebar").style.display = "block";
+        document.querySelector('.menu-button').style.left = "220px";
+    }
+
+    function w3_close() {
+        document.getElementById("mySidebar").style.display = "none";
+        document.querySelector('.menu-button').style.left = "20px";
+    }
+    </script>
+
+<div class="footer-bar">
+    <img src="img/barra2.jpg" style="width: 100%; height: 50px;">
+    <div class="copyright-text">© 2024 DARKLEM GROUP</div>
+</div>
+
+<script>
+function toggleTip(element) {
+    element.classList.toggle('active');
+}
+
+function toggleSubTip(element) {
+    event.stopPropagation();
+    element.classList.toggle('active');
+    
+    const content = element.querySelector('.inner-content');
+    if (content) {
+        if (element.classList.contains('active')) {
+            content.style.maxHeight = '1000px';
+        } else {
+            content.style.maxHeight = '0';
+        }
+    }
+}
+</script>
+
+<script>
+function toggleInnerContent(element) {
+    event.stopPropagation();
+    const content = element.querySelector('.inner-content');
+    
+    if (content.style.display === 'none' || content.style.display === '') {
+        content.style.display = 'block';
+        content.style.maxHeight = 'none';
+        content.style.height = 'auto';
+    } else {
+        content.style.display = 'none';
+    }
+}
+</script>
+
+</body>
+</html> 
